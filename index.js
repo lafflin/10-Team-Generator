@@ -6,9 +6,17 @@ const Manager = require("./lib/Manager.js");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+const render = require("./lib/htmlRenderer");
 
 // empty array to store the created employees
 let createdEmployees = [];
+
+// function to write the html file
+function writeHTML(fileName, data) {
+	fs.writeFile(fileName, data, (err) => {
+		console.error(err);
+	});
+}
 
 // func for after the afterManager() func, to ask if the user would like to continue adding team members
 const continueAdding = () => {
@@ -26,6 +34,13 @@ const continueAdding = () => {
 				afterManager();
 			} else {
 				console.log("finished!");
+				// make createdEmployees the data
+				data = createdEmployees;
+				html = render(data);
+				// then need to use the created HTML file and input the data to make the code
+				console.log(data);
+				// then call this function with the new HTML file
+				writeHTML("exampleHTML.html", html);
 			}
 		});
 };
