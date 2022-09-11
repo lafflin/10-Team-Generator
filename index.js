@@ -35,10 +35,10 @@ const continueAdding = () => {
 			} else {
 				console.log("finished!");
 				// make createdEmployees the data
-				data = createdEmployees;
-				html = render(data);
+				// data = createdEmployees;
+				html = render(createdEmployees);
 				// then need to use the created HTML file and input the data to make the code
-				console.log(data);
+				// console.log(data);
 				// then call this function with the new HTML file
 				writeHTML("exampleHTML.html", html);
 			}
