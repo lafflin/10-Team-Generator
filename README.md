@@ -58,11 +58,15 @@ THEN I exit the application, and the HTML is generated
 ### Links
 
 - Solution URL: [Solution](https://github.com/lafflin/10-Team-Generator)
+- Demo: [YouTube]()
   ​
 
 ## My process
 
-1.
+1. The first thing I did was get my file structure set up
+2. Following this I created all of my classes. Afterwards I set up all of the tests for the classes.
+3. Once all of this was done, I worked on getting inquirer working.
+4. After this, I finished by getting the HTML rendering to work properly
 
 ### Built with
 
@@ -76,11 +80,11 @@ THEN I exit the application, and the HTML is generated
 
 ### Continued development
 
-- More work with Javascript
+- More work with Javascript, more specifically jest
 
 ### Useful resources
 
--
+- Google, google, google, and google.
 
 ## Author
 

@@ -6,14 +6,20 @@ const Manager = require("./lib/Manager.js");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
-const render = require("./lib/htmlRenderer");
+const { dirname } = require("path");
+const { create } = require("domain");
+const renderTeam = require("./lib/htmlRenderer");
+
+const DIRPath = path.resolve(__dirname, "dist");
+const DIRFile = path.join(DIRPath, "teamview.html");
 
 // empty array to store the created employees
 let createdEmployees = [];
 
 // function to write the html file
-function writeHTML(fileName, data) {
-	fs.writeFile(fileName, data, (err) => {
+// need to make it write to the dist file
+function writeHTML() {
+	fs.writeFileSync(DIRFile, renderTeam(createdEmployees), (err) => {
 		console.error(err);
 	});
 }
@@ -34,13 +40,13 @@ const continueAdding = () => {
 				afterManager();
 			} else {
 				console.log("finished!");
-				// make createdEmployees the data
-				// data = createdEmployees;
-				html = render(createdEmployees);
+				// const stringifiedEmployees = JSON.stringify(createdEmployees);
+				// console.log(stringifiedEmployees);
+				// html = renderTeam(createdEmployees);
 				// then need to use the created HTML file and input the data to make the code
 				// console.log(data);
 				// then call this function with the new HTML file
-				writeHTML("exampleHTML.html", html);
+				writeHTML();
 			}
 		});
 };
@@ -128,7 +134,6 @@ const afterManager = () => {
 							intern.school
 						);
 						createdEmployees.push(newIntern);
-						console.log(createdEmployees);
 						continueAdding();
 					});
 			}
@@ -170,5 +175,3 @@ inquirer
 		// call the function so that after the manager is made, we go to add more people to the team
 		afterManager();
 	});
-
-// also need a sample of the HTML doc created in dist folder
