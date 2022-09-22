@@ -58,7 +58,7 @@ THEN I exit the application, and the HTML is generated
 ### Links
 
 - Solution URL: [Solution](https://github.com/lafflin/10-Team-Generator)
-- Demo: [YouTube]()
+- Demo: [YouTube](https://youtu.be/v00h2SakNoI)
   ​
 
 ## My process
